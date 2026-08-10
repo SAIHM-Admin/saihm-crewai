@@ -1,0 +1,12 @@
+.venv/
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+
+# Internal handoff note. MANIFEST.in already keeps it out of the sdist, but that does nothing
+# for git — without this line a `git add .` would publish it to the public repo.
+STAGING.md

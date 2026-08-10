@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saihm-crewai"
+version = "0.1.0"
+description = "SAIHM-backed external memory for CrewAI — long-term memory your users own: one encrypted source of truth shared across a whole crew, portable across every model, sealed client-side, and provably erasable (GDPR Art. 17)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "SAIHM" }]
+keywords = ["crewai", "agent-memory", "external-memory", "mcp", "saihm", "encryption", "gdpr", "memory"]
+dependencies = [
+    "mcp>=1.5,<3",   # drives the bundled Node MCP sidecar over stdio (verified on 1.x and 2.0)
+    # SaihmStorageBackend implements crewai.memory.storage.backend.StorageBackend.
+    # Floor is 1.15, not 1.9: crewai REPLACED the old memory API between those releases.
+    # Measured by listing the published wheels, not inferred --
+    #   1.9.3  : storage/interface.py + external/external_memory.py ; NO storage/backend.py
+    #   1.10.0 : storage/backend.py + types.py appear, storage/interface.py gone
+    #   1.15.0 : storage/factory.py (set_memory_storage_factory) appears
+    # The documented wiring uses the factory hook, so 1.15 is the honest floor even though the
+    # backend protocol alone would work from 1.10. Verified end-to-end on 1.15.14.
+    "crewai>=1.15,<2",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+]
+
+[project.urls]
+Homepage = "https://saihm.coti.global"
+Documentation = "https://saihm.coti.global"
+Source = "https://github.com/SAIHM-Admin/saihm-crewai"
+Demos = "https://citw2.github.io/saihm-demos/"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-asyncio>=0.23"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# The Node sidecar ships as package data (no node_modules — provisioned into a user cache on
+# first use; see saihm_memory/_bootstrap.py).
+saihm_memory = [
+    "_sidecar/server.mjs",
+    "_sidecar/sandbox.mjs",
+    "_sidecar/package.json",
+    "_sidecar/package-lock.json",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
