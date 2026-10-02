@@ -2,6 +2,10 @@
 
 **SAIHM external memory for CrewAI — a `StorageBackend` your crew owns: one encrypted source of truth every agent in the crew shares, portable across every model, and provably erasable.**
 
+<a href="https://saihm.net/overview"><img src="https://saihm.net/media/saihm-short-overview-play.jpg" alt="Watch: SAIHM in 6 minutes" width="480"></a>
+
+**New to SAIHM?** [Watch the 6-minute overview](https://saihm.net/overview) (captions and transcript), or [read the SAIHM manual (PDF)](https://saihm.net/manual).
+
 `SaihmStorageBackend` is a drop-in [`crewai.memory.storage.backend.StorageBackend`](https://docs.crewai.com/en/concepts/memory) — the protocol CrewAI's unified memory resolves through. Register it once and that crew's long-term memory becomes memory the user actually owns: portable across models *and* frameworks, non-custodial (sealed client-side; Python never holds a key), and **provably erasable** (GDPR Art. 17 — `reset` crypto-shreds the cells, it does not merely hide them).
 
 ```bash
