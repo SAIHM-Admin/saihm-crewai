@@ -76,9 +76,9 @@ A cell written outside this adapter (e.g. by the LangGraph, LangChain, or AutoGe
 
 ## Related
 
-- **Try it in your browser (offline, no signup):** <https://citw2.github.io/saihm-demos/>
-- **Runnable end-to-end demo:** <https://github.com/citw2/saihm-crewai>
-- **Other adapters:** [LangGraph](https://github.com/SAIHM-Admin/saihm-langgraph) · [LangChain/LlamaIndex](https://github.com/citw2/saihm-langchain) · [AutoGen](https://github.com/citw2/saihm-autogen)
+- **Try it in your browser (offline, no signup):** <https://saihm-admin.github.io/saihm-demos/>
+- **Runnable end-to-end demo:** <https://github.com/SAIHM-Admin/saihm-crewai-demo>
+- **Other adapters:** [LangGraph](https://github.com/SAIHM-Admin/saihm-langgraph) · [LangChain/LlamaIndex](https://github.com/SAIHM-Admin/saihm-langchain) · [AutoGen](https://github.com/SAIHM-Admin/saihm-autogen)
 - **What SAIHM is:** <https://saihm.coti.global>
 
 ## License
