@@ -1,8 +1,8 @@
 # saihm-crewai — memory for CrewAI crews
 
 **Portable memory for CrewAI crews.** A CrewAI memory `StorageBackend` that gives your whole
-crew one memory: encrypted on your machine, portable across models and frameworks, and
-erasable for good.
+crew one memory, encrypted on your machine and portable across models and frameworks. Any
+memory can be erased for good.
 
 [![PyPI version](https://img.shields.io/pypi/v/saihm-crewai.svg)](https://pypi.org/project/saihm-crewai/)
 [![license](https://img.shields.io/pypi/l/saihm-crewai.svg)](https://github.com/SAIHM-Admin/saihm-crewai/blob/main/LICENSE)
@@ -22,7 +22,7 @@ erasable for good.
 goes anywhere, and SAIHM stores only that ciphertext. Nobody else can read your memories —
 not the storage, not SAIHM. With your key in a key file, Python never reads the key. With
 the default free-join key file, the client also keeps a local copy of the memories this
-device has opened, readable only by your user account, so recall is fast; set
+device has written or opened, readable only by your user account, so recall is fast; set
 `SAIHM_RECALL_CACHE=0` to keep none
 ([details](https://github.com/SAIHM-Admin/saihm-adapters#how-it-works)).
 
